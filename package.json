@@ -1,0 +1,16 @@
+{
+  "name": "raising",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "1.4.2",
+    "prettier": "^3.9.9"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{md,json,yml,yaml,ts}\" \".prettierrc\"",
+    "format:check": "prettier --check \"**/*.{md,json,yml,yaml,ts}\" \".prettierrc\""
+  }
+}
