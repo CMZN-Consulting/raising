@@ -6,7 +6,7 @@ A language is a meta-thing whose raw data is text and whose one constraint is we
 
 A language is a meta-language when some of its meanings are meta-things. A language is only a language when all of its meanings are values. The two are told apart by looking at what the meanings are, not by choosing.
 
-The interface-language is this framework's meta-language. It is Lean 4, restricted by the gate's source rule, together with the library in which these definitions take their formal shape. The gate is the check that admits a Lean source file into the interface-language. Its rule is published; it currently lives in the memory-artifact repository at https://github.com/CMZN-Consulting/memory-artifact, pending a home of its own. The interface-language's grammar is an object inside it. Its judge is the gate, one level up.
+The interface-language is this framework's meta-language. It is Lean 4, restricted by the gate's source rule, together with the library in which these definitions take their formal shape. The gate is the check that admits a Lean source file into the interface-language. Its rule is not yet published. When it is, this definition will cite it. The interface-language's grammar is an object inside it. Its judge is the gate, one level up.
 
 The language an individual reads and writes is only a language. Its texts mean memory lines and actions. New kinds of line arrive by a version change made in the meta-language, never by the individual.
 
