@@ -1,4 +1,4 @@
-# relationship
+# relationship, the interpreter
 
 Version 0.1.0. Depends on: thing.
 
@@ -8,4 +8,4 @@ The set of things a relationship links is its extension. A relationship is valid
 
 A relationship that is articulated, but whose membership cannot be decided, is open. Open is a status, not a failure, and it is said out loud.
 
-Whether a relationship holds is decided by the interpreter, which sits outside every thing. A thing never contains the judgement that it holds. It contains only the articulation.
+Whether a relationship holds is decided by the interpreter. The interpreter is the function that decides whether a thing meets a condition. It sits outside every thing. In Lean, the proof assistant at https://lean-lang.org, it is the kernel together with the programs compiled from Lean. A thing never contains the judgement that it holds. It contains only the articulation.

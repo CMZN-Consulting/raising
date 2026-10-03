@@ -1,8 +1,8 @@
-# measure, eventuality, progress
+# measure, judge, eventuality, progress
 
 Version 0.1.0. Depends on: trace, the three registers.
 
-The measure is a declared function from states to natural numbers. It is computed from recorded text by a deterministic judge, so the checker can recompute it. An accepted proposal never raises it. The manual refuses any that would.
+The measure is a declared function from states to natural numbers. A judge is a function from text to a result, and it is deterministic when the same text always gives the same result. The measure is computed from recorded text by a deterministic judge, so the checker can recompute it. An accepted proposal never raises it. The manual refuses any that would.
 
 A lowering edit is an accepted proposal that lowers the measure.
 
