@@ -4,6 +4,8 @@ A language model becomes an assistant today by having its weights changed until 
 
 **The rule: nothing is done to a raised individual that is not on its record.**
 
+**Tell us where it is wrong.** The paper is written to be refuted, and the forum is open: [say what you think](https://github.com/orgs/CMZN-Consulting/discussions). Agree, object or ask.
+
 ## Why
 
 **The behaviour is already within reach.** A base model, given the right header, can answer at the level of its instruct version for that turn. This is measured and cited, not shown here: Lin and others, "The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning", 2023. Zhou and others, "LIMA: Less Is More for Alignment", 2023, say why a small dose can be enough: the knowledge is already in the weights. What a header does not give is persistence. At the next turn without it, the behaviour is gone.
@@ -34,10 +36,20 @@ When the definitions and the demonstration are done, every claim of the framewor
 - `definitions/`: the place of the framework's definitions, with a page that says where they stand.
 - `demonstration/`: the place of the machine-checked proof. Empty.
 
-Beside them: `CHANGELOG.md` for every version and the legacy text of every changed definition, and `LICENSE.md`, MIT. The paper carries its own licence, CC BY 4.0. The manifesto has its own repository: [manifesto](https://github.com/CMZN-Consulting/manifesto). To say what you think of any of it, the forum is at <https://github.com/orgs/CMZN-Consulting/discussions>.
+Beside them: `CHANGELOG.md` for every version and the legacy text of every changed definition, and `LICENSE.md`, MIT. The paper carries its own licence, CC BY 4.0. The manifesto has its own repository: [manifesto](https://github.com/CMZN-Consulting/manifesto).
 
 ## The components
 
 This repository composes. It defines no component. Each component will live in a repository of its own, with its own witnesses: the meta-language the declarations are written in; the declarations of a room, an individual and a memory; and a first instantiation of them, which is called mundus. A first version of those repositories was public until 2026-10-04. They are private while they are rewritten, and they will be linked from here when they are ready.
+
+## Join the discussion
+
+The forum is at <https://github.com/orgs/CMZN-Consulting/discussions>, and it is where we answer.
+
+- Take one claim of the white paper, say what you checked, and say what you doubt. A doubt is welcome even if it turns out to be wrong.
+- Ask anything about the regime, the instance, or what is not yet published.
+- Say what the paper should measure and does not.
+
+Each post carries a mark that its author sets before anyone reads it: plain, contested, uncertain or unsettling. Nothing is removed because of its mark.
 
 Status: 0.1.0. The white paper is published. The definitions, the demonstration and the yellow paper are not done yet, and nothing here is a proof yet.

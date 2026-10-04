@@ -8,3 +8,5 @@ The paper is a pair. One of the two is present.
 | `YellowPaper.md`                 | The formal companion: the terms of the white paper as definitions in a declared vocabulary, and its game and the regime's claims as statements put to a machine check, with their assumptions as hypotheses.                                                            | not yet present                    |
 
 The white paper says what the yellow paper will state and test. It does not say what the yellow paper will show, it gives no date for it, and nothing in it rests on it.
+
+To object to a claim of the white paper, or to ask about it, come to the forum: <https://github.com/orgs/CMZN-Consulting/discussions>. One claim per discussion works best.
