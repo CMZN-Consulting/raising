@@ -18,7 +18,7 @@ A language model becomes an assistant today by having its weights changed until 
 
 ## What is published, and what is not yet
 
-- **The white paper is published**: [`docs/paper/WhitePaper.md`](docs/paper/WhitePaper.md), _Intelligence and Its Existence: The Need for Persistence, Remembering, Control, and Purpose_, in its text of 2026-10-04. It is a position paper and the record of one running instance. It reports no results, and says so.
+- **The white paper is published**: [`docs/paper/WhitePaper.md`](docs/paper/WhitePaper.md), _Intelligence and Its Existence: The Need for Persistence, Remembering, Control, and Purpose_, in its final text of 2026-10-05, closed by the authors. It is a position paper and the record of one running instance. It reports no results, and says so.
 - **The yellow paper**, its formal companion, is not yet present. It is to carry the formal treatment: the paper's terms as definitions, and its statements put to a machine check.
 - **The definitions** in [`definitions/`](definitions/README.md) are not done yet, and they are coming soon. A first draft was withdrawn when the white paper was published. It is still in the history, and that page says why.
 - **The demonstration** in [`demonstration/`](demonstration/README.md) is not done yet, and it is coming soon.
@@ -52,4 +52,4 @@ The forum is at <https://github.com/orgs/CMZN-Consulting/discussions>, and it is
 
 Each post carries a mark that its author sets before anyone reads it: plain, contested, uncertain or unsettling. Nothing is removed because of its mark.
 
-Status: 0.1.0. The white paper is published. The definitions, the demonstration and the yellow paper are not done yet, and nothing here is a proof yet.
+Status: 0.1.0. The white paper is published and closed. The definitions, the demonstration and the yellow paper are not done yet, and nothing here is a proof yet.
