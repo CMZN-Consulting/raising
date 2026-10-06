@@ -8,4 +8,4 @@ This framework has three declarations: the individual (13), the room (14) and th
 
 An extension of a declaration adds fields or constraints and removes none. Forgetting the added part is an arrow from the extension to the declaration it extends, so every definition of an extension is a definition of the declaration, and whatever is shown of a declaration holds of every extension of it. Dropping a constraint is not an extension.
 
-A component is a declaration together with the repository that holds it and the definitions of it that other repositories hold. The repository named for a declaration holds the declared object and its floor; a repository named for a hyper-reality (09) holds a definition of it.
+A component is a declaration together with the repository that holds it and the definitions of it that other repositories hold. The repository named for a declaration holds the declared object and its floor; a repository named for a framework (09) holds a definition of it.

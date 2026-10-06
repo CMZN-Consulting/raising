@@ -2,7 +2,7 @@
 
 Depends on: raising, the gap, eventuality, the premise, the four conditions, the three registers.
 
-This is the shape of the claim. At this version no part of it has been discharged.
+This is the shape of the claim. It is stated on the meta-framework (09) alone, as burdens over every fill, so that a framework at full resolution inherits it and proves nothing of its own. At this version no part of it has been discharged.
 
 Three definitions carry it: the gap (17), tied to the development set and, through the battery, to the verdict; the acceptance rule (17), so that no regress is proved from the manual and never assumed; and the floor p (17), declared with the individual under its manual as the candidate meant to meet it and the random editor as the candidate that fails it.
 
