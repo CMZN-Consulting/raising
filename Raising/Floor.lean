@@ -1,4 +1,4 @@
-import Raising.OuterFrame
+import Raising.Tool
 
 /-!
 # The floor of the root: witnesses and falsifiers
@@ -101,5 +101,45 @@ theorem succ_no_arrow (n : Nat) : ¬ ∃ f : Bounded n ⟶ Bounded n, f.map = Na
     have hk := f.keeps x hx
     rw [hf] at hk
     exact hk)
+
+/-- A tool on the bounded object: halving, under the name 0, whatever its arguments. -/
+def halve (n : Nat) : Tool (Bounded n) :=
+  ⟨0, fun _ => ⟨fun x => x / 2, fun x hx =>
+    (Bounded.inExt_iff n (x / 2)).mpr
+      (Nat.le_trans (Nat.div_le_self x 2) ((Bounded.inExt_iff n x).mp hx))⟩⟩
+
+/-- Another: the reset to zero, under the name 1. -/
+def reset (n : Nat) : Tool (Bounded n) :=
+  ⟨1, fun _ => ⟨fun _ => 0, fun _ _ => (Bounded.inExt_iff n 0).mpr (Nat.zero_le n)⟩⟩
+
+/-- A kit of the two. -/
+def kit (n : Nat) : Toolkit (Bounded n) := [halve n, reset n]
+
+/-- The kit answers the call `[0, 5]` with halving: two becomes one. -/
+example : (Toolkit.apply (kit 3) [0, 5]).map 2 = 1 := rfl
+
+/-- It answers `[1]` with the reset. -/
+example : (Toolkit.apply (kit 3) [1]).map 2 = 0 := rfl
+
+/-- It refuses `[7, 1]`, a name it has no tool for: two stays two. -/
+example : (Toolkit.apply (kit 3) [7, 1]).map 2 = 2 :=
+  congrArg (fun f : Bounded 3 ⟶ Bounded 3 => f.map 2)
+    (Toolkit.apply_unknown (kit 3) 7 [1] (Toolkit.find_none_of_not_mem _ _ (by decide)))
+
+/-- The frame of the kit under the rule that always calls the tool named 0 runs as halving
+does, at every unit of Theta. -/
+theorem ofKit_run (n x : Nat) (θ : Theta) :
+    (OuterFrame.ofToolkit (kit n) (fun _ => [0])).run x θ = (halving n).run x θ := by
+  induction θ with
+  | zero => rfl
+  | succ θ ih =>
+    show (Toolkit.apply (kit n) [0]).map ((OuterFrame.ofToolkit (kit n) fun _ => [0]).run x θ)
+      = (halving n).run x θ / 2
+    rw [ih]
+    rfl
+
+/-- Falsifier: no tool on the bounded object has the successor as its act. -/
+theorem succ_no_tool (n : Nat) : ¬ ∃ t : Tool (Bounded n), ∃ args : Text, (t.act args).map = Nat.succ :=
+  fun ⟨t, args, h⟩ => succ_no_arrow n ⟨t.act args, h⟩
 
 end Raising

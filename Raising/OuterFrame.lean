@@ -1,10 +1,13 @@
 import Raising.Declaration
 
 /-!
-# The outer frame and the burden
+# The Outer-Frame and the burden
 
-The outer frame is what runs an implementation over Theta. It is aligned to an object: its
-step is legal when it keeps the object's extension, which is the one thing the frame shows.
+The outer frame is the environment that runs the simulation: it runs an implementation over
+Theta, and Theta is its clock. It is aligned to an object and given from outside it: its step
+is legal when it keeps the object's extension, which is the one thing the frame shows. The
+frame reaches the inside only by its step, and the inside reaches the frame only by a call
+(`Raising/Tool.lean`).
 The burden is then stated once, over every declaration, every collection of stated
 parameters, every Define arrow and every legal outer frame: the implementation keeps every
 constraint of the declaration at every Theta. A framework at full resolution inherits it by
@@ -15,7 +18,8 @@ namespace Raising
 
 universe u v
 
-/-- An outer frame aligned to an object: a step on candidates that keeps the extension. -/
+/-- An Outer-Frame aligned to an object: a step on candidates that keeps the extension. The
+environment that runs the simulation, as the object sees it. -/
 structure OuterFrame (O : Object.{u}) where
   step : O.Carrier → O.Carrier
   legal : ∀ x, O.InExt x → O.InExt (step x)
@@ -30,6 +34,16 @@ theorem OuterFrame.run_zero {O : Object.{u}} (F : OuterFrame O) (x : O.Carrier) 
 
 theorem OuterFrame.run_succ {O : Object.{u}} (F : OuterFrame O) (x : O.Carrier) (θ : Theta) :
     F.run x (θ + 1) = F.step (F.run x θ) := rfl
+
+/-- Theta acts: running for `a` units and then for `b` is running for `a + b`. The outer frame
+is an action of its clock on the candidates. -/
+theorem OuterFrame.run_add {O : Object.{u}} (F : OuterFrame O) (x : O.Carrier) (a b : Theta) :
+    F.run x (a + b) = F.run (F.run x a) b := by
+  induction b with
+  | zero => rfl
+  | succ b ih =>
+    show F.step (F.run x (a + b)) = F.step (F.run (F.run x a) b)
+    rw [ih]
 
 /-- The burden on an object: an instance run by a legal outer frame stays in the extension
 at every Theta. -/

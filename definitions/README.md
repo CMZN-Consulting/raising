@@ -1,10 +1,10 @@
 # Definitions
 
-The root of raising: fourteen things defined in Lean 4, with one burden proved over them, and nothing else. The Lean is the definition; each file here is the English rendering of its Lean, names the Lean it renders, and is not edited on its own. The kernel is the check: `scripts/check.sh` builds the root, refuses a `sorry` or an axiom in the source, and refuses any theorem that depends on an axiom beyond Lean's own three. On 2026-10-06 the burden and inheritance depend on no axiom at all, and three falsifiers depend on `propext` (recorded, from that script's output).
+The root of raising: seventeen things defined in Lean 4, with one burden proved over them, and nothing else. The Lean is the definition; each file here is the English rendering of its Lean, names the Lean it renders, and is not edited on its own. The kernel is the check: `scripts/check.sh` builds the root, refuses a `sorry` or an axiom in the source, and refuses any theorem that depends on an axiom beyond Lean's own three. On 2026-10-06 the burden and inheritance depend on no axiom at all, and three falsifiers depend on `propext` (recorded, from that script's output).
 
 The files are read in order. A definition uses no word that a later file defines, except by pointing forward to the file that defines it, in parentheses.
 
-## The fourteen, and where each is
+## The seventeen, and where each is
 
 | word           | Lean                                          | file |
 | -------------- | --------------------------------------------- | ---- |
@@ -15,6 +15,7 @@ The files are read in order. A definition uses no word that a later file defines
 | Instance       | `Raising.Instance`                            | 00   |
 | Meta-Object    | `Raising.MetaObject`                          | 03   |
 | Theta          | `Raising.Theta`                               | 04   |
+| Outer-Frame    | `Raising.OuterFrame`                          | 04   |
 | Declaration    | `Raising.Declaration`                         | 05   |
 | Definition     | `Raising.Definition`                          | 06   |
 | Declare        | `Raising.Declare`                             | 06   |
@@ -22,8 +23,10 @@ The files are read in order. A definition uses no word that a later file defines
 | Define         | `Raising.Define`                              | 07   |
 | Meta-Language  | `Raising.MetaLanguage`, `declareMetaLanguage` | 09   |
 | Language       | `Raising.Language`                            | 09   |
+| Tool           | `Raising.Tool`                                | 11   |
+| Toolkit        | `Raising.Toolkit`                             | 11   |
 
-Beside them, the words the fourteen need and the root defines with them: carrier, candidate, property, extension, the interpreter (00); identity, composition (01); text (02); level (03); outer frame, legal, run (04); parameter, stated parameters, the floor, resolution (05); the burden, inheritance (08); well-formed, meaning, alphabet, the declaration of languages (09). The floor of the whole root, a meeting and a failing candidate per notion, is 10.
+Beside them, the words the seventeen need and the root defines with them: carrier, candidate, property, extension, the interpreter (00); identity, composition (01); text (02); level (03); legal, run, the action of Theta (04); parameter, stated parameters, the floor, resolution (05); the burden, inheritance (08); well-formed, meaning, alphabet, the declaration of languages (09); call, refusal, the names of a kit, the calling rule (11). The floor of the whole root, a meeting and a failing candidate per notion, is 10; the tool and the toolkit come after it, in 11, and their rows of the floor point forward to it.
 
 ## The two arrows
 
@@ -35,7 +38,7 @@ The root is written in Lean 4 and imports nothing. Each level imports from the l
 
 | level | repository                                                   | written in                                  | holds                                             |
 | ----- | ------------------------------------------------------------ | ------------------------------------------- | ------------------------------------------------- |
-| root  | `raising`                                                    | Lean 4                                      | the fourteen and the burden; these renderings     |
+| root  | `raising`                                                    | Lean 4                                      | the seventeen and the burden; these renderings    |
 | 1     | `interface-language`                                         | Lean 4, the interface-language              | the meta-language the declarations are written in |
 | 2     | `room`, `individual`, `memory-artifact`                      | the interface-language                      | the three declarations                            |
 | 3     | `mundus-language`                                            | the interface-language, the mundus-language | the language of the definitions of mundus         |

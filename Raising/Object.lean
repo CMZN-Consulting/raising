@@ -1,7 +1,7 @@
 /-!
 # The root: Object, `-->` (written `⟶` in Lean), `[]`, Instance, Meta-Object, Theta
 
-The meta-framework of raising defines fourteen things and nothing else. This file holds six
+The meta-framework of raising defines seventeen things and nothing else. This file holds six
 of them. Every word here is the Lean form of the English definition of the same name in
 `definitions/`, and the English is a rendering of this file.
 

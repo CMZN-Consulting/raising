@@ -3,7 +3,7 @@ import Raising.Object
 /-!
 # Declaration, Definition, Declare, Implementation, Define
 
-Five more of the fourteen. A declaration makes no choice: every choice is a parameter, and
+Five more of the seventeen. A declaration makes no choice: every choice is a parameter, and
 the declaration is a family of objects indexed by the collections of stated parameters.
 Declare takes one such collection to the definition it picks out. Define takes one
 definition to one implementation. The floor is a field of the declaration: whoever builds

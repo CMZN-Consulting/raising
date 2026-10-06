@@ -3,7 +3,7 @@ import Raising.Declaration
 /-!
 # Token, Meta-Language, Language
 
-The last three of the fourteen. A token is the unit of text, and a text is a collection of
+Three more of the seventeen. A token is the unit of text, and a text is a collection of
 tokens. The declaration of languages takes an alphabet, a collection of tokens, as its
 parameters; Declare takes the alphabet to a Meta-Language, the definition whose candidates
 are the languages over that alphabet; Define takes a Meta-Language to a Language, one

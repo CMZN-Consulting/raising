@@ -12,6 +12,7 @@ import Raising
 #print axioms Raising.Define.exists
 #print axioms Raising.OuterFrame.run_zero
 #print axioms Raising.OuterFrame.run_succ
+#print axioms Raising.OuterFrame.run_add
 #print axioms Raising.OuterFrame.burden
 #print axioms Raising.burden
 #print axioms Raising.inherits
@@ -22,3 +23,11 @@ import Raising
 #print axioms Raising.succ_not_legal
 #print axioms Raising.burden_needs_legal
 #print axioms Raising.succ_no_arrow
+#print axioms Raising.Toolkit.find_none_of_not_mem
+#print axioms Raising.Toolkit.apply_nil
+#print axioms Raising.Toolkit.apply_found
+#print axioms Raising.Toolkit.apply_unknown
+#print axioms Raising.OuterFrame.ofToolkit_refuses
+#print axioms Raising.OuterFrame.ofToolkit_silent
+#print axioms Raising.ofKit_run
+#print axioms Raising.succ_no_tool

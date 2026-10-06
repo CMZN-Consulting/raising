@@ -20,7 +20,7 @@ A language model becomes an assistant today by having its weights changed until 
 
 - **The white paper is published**: [`docs/paper/WhitePaper.md`](docs/paper/WhitePaper.md), _Intelligence and Its Existence: The Need for Persistence, Remembering, Control, and Purpose_, in its final text of 2026-10-05, closed by the authors. It is a position paper and the record of one running instance. It reports no results, and says so.
 - **The yellow paper**, its formal companion, is not yet present. It is to carry the formal treatment: the paper's terms as definitions, and its statements put to a machine check.
-- **The root is published**: fourteen things defined in Lean 4 under [`Raising/`](Raising/), with one burden proved over them and checked by the kernel (`scripts/check.sh`: it builds, refuses a `sorry` or an axiom in the source, and refuses a theorem that depends on anything beyond Lean's three axioms), and their English renderings in [`definitions/`](definitions/README.md). A first draft of twenty English definitions was withdrawn on 2026-10-04; it is still in the history, and that page says why. The root was written by one author and has not yet had a reader who did not write it.
+- **The root is published**: seventeen things defined in Lean 4 under [`Raising/`](Raising/), with one burden proved over them and checked by the kernel (`scripts/check.sh`: it builds, refuses a `sorry` or an axiom in the source, and refuses a theorem that depends on anything beyond Lean's three axioms), and their English renderings in [`definitions/`](definitions/README.md). A first draft of twenty English definitions was withdrawn on 2026-10-04; it is still in the history, and that page says why. The root was written by one author and has not yet had a reader who did not write it.
 - **The demonstration** in [`demonstration/`](demonstration/README.md) is not done yet, and it is coming soon.
 - **The letters** that go with the paper are not yet present.
 
@@ -53,4 +53,4 @@ The forum is at <https://github.com/orgs/CMZN-Consulting/discussions>, and it is
 
 Each post carries a mark that its author sets before anyone reads it: plain, contested, uncertain or unsettling. Nothing is removed because of its mark.
 
-Status: 0.2.0. The white paper is published and closed. The root is defined in Lean 4 and its burden is proved. The demonstration and the yellow paper are not done yet.
+Status: 0.3.0. The white paper is published and closed. The root is defined in Lean 4 and its burden is proved. The demonstration and the yellow paper are not done yet.
