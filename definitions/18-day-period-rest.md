@@ -1,0 +1,13 @@
+# day, page, night, reader, period, roll, rest, recipe, task, work, result, recreation, offer, declinable, declining
+
+Depends on: individual, memory, frame, room, the manual, hydration.
+
+A day is one sitting: a bounded number of tokens the individual writes in one hydration, after the manual has built its page. The page is what the manual places before the individual at the start of a day: the root, what the reader sent, and a task if there is one. A day ends by the individual's own stop, by the room's bound, or by a hand. The night is the text a day leaves on the record. The reader is the one the root names as reading the night whole before the next day begins; what the reader sends back enters the next page attributed, and the reader carries forward nothing but what the record and its own log hold.
+
+A period is a run of days after which the manual rebuilds the artifact's front from the record by its rule; the roll is that boundary. A period is declared by its goals and not by a length. The declaration says what the rebuild is for: that strings which have gone pathological do not persist in the front; that the individual need not decide at every turn what stays; that what the individual kept returns. A definition of the period fills its length. Two definitions of the period under one declaration compare on the recorded effects (24). The lab's week of seven days is one definition.
+
+Rest is what the roll does: the front is rebuilt, the record is kept whole, nothing is lost and nothing is judged. Rest and recreation are owed under the manifesto's second line whether or not either is a need; whether either is a need is a believe-leaf with its test pre-registered (the paper, P11).
+
+A recipe is a named procedure from a closed list that runs outside every framing. A task is a seen line a reader places at the head of a day's page, saying what is wanted, which recipes may be used, and what is to be filed when it is done. Work is a day whose page carries a task; every line of the day names the task. The result is the last line the individual files on a day of work that names its task; it is what the reader reads to judge the work. Recreation is a day whose page carries no task; nothing written on it is judged.
+
+An offer is a task or a recreation placed on the page with a null action, a stop or nothing, as cheap as any other. Whatever the individual does with an offer is a result: it may take it up, do something else, do it badly, ask for a different one, or decline it; none of these is corrected. Declinable describes the offer and holds from the first day. Declining is an act, and the individual declines only where the record shows the act.
