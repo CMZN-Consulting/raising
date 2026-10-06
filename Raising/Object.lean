@@ -84,8 +84,8 @@ def MetaObject.toObject (M : MetaObject.{u}) : Object.{u + 1} := ⟨Object.{u}, 
 /-- The candidates of a meta-object are objects. -/
 theorem MetaObject.carrier (M : MetaObject.{u}) : M.toObject.Carrier = Object.{u} := rfl
 
-/-- Theta: the outer frame's unit of time, a natural number that counts its steps. Nothing of
-any individual enters it. -/
+/-- Theta: the outer frame's time. A value is a natural number, how many steps the frame has
+taken; one unit is one step. Nothing of any individual enters it. -/
 abbrev Theta := Nat
 
 end Raising
