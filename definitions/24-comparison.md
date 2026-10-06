@@ -1,6 +1,6 @@
 # comparison, grounding
 
-Depends on: trace, progress, verdict, definition, declaration, period.
+Depends on: trace, progress, verdict, declaration, definition, period.
 
 Two valid traces under the same version compare by progress. The comparison is decided when their brackets do not overlap, and undecided otherwise. Undecided is reported as undecided.
 

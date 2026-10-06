@@ -1,6 +1,6 @@
 # model, weights, hash, latent space, series, version, platform, turn, context, framing, seed, environment, housing, lever, invasive, post-training by weight change
 
-Depends on: thing, parameter, meta-object, declarability.
+Depends on: thing, parameter, meta-object, declarability, definition.
 
 Model means only a language model: a set of weights with exact limits. The weights are named by a hash, a fixed-length name computed from their bytes, so that the same bytes always get the same name. That different bytes never share a name is a property of the hash in use and is checked where it is relied on, never assumed of every hash.
 

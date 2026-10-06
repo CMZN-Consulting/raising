@@ -1,6 +1,6 @@
 # refinement, revision, version, the bar
 
-Depends on: the three registers, definition, mark.
+Depends on: the three registers, declaration, definition, mark.
 
 A definition in this repository starts in English. There is no least arbitrary form of it: what an English sentence means depends on where it is used, on who reads it, and on what that reader has read before. So no definition is ever shown to be least arbitrary. A definition is shown to be too arbitrary, by a structural property, or it clears the bar.
 
