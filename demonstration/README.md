@@ -2,4 +2,4 @@
 
 **Not done yet, and coming soon.**
 
-This directory is for the machine-checked proof, in Lean 4 with no `sorry`, of the claim that the definitions state. It is empty. The claim is being restated together with the definitions ([`definitions/README.md`](../definitions/README.md)), so nothing in this repository is a proof yet. The demonstration will compose the components; it will define none of them.
+This directory is for the machine-checked demonstration: an implementation of a framework at full resolution, composed from the components, run and recorded, which inherits the burden of the root ([`definitions/08-the-burden.md`](../definitions/08-the-burden.md)) and proves nothing of its own. It is empty. It will be a Lake package of its own, pinning the whole stack, and it will define no component.
