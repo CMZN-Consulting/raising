@@ -6,22 +6,22 @@ The files are read in order. A definition uses no word that a later file defines
 
 ## The fourteen, and where each is
 
-| word           | Lean                                         | file |
-| -------------- | -------------------------------------------- | ---- |
-| Object         | `Raising.Object`                             | 00   |
-| `-->`          | `Raising.Arrow`, written `⟶` in Lean         | 01   |
-| `[]`           | `Raising.Collection`                         | 02   |
-| Token          | `Raising.Token`                              | 02   |
-| Instance       | `Raising.Instance`                           | 00   |
-| Meta-Object    | `Raising.MetaObject`                         | 03   |
-| Theta          | `Raising.Theta`                              | 04   |
-| Declaration    | `Raising.Declaration`                        | 05   |
-| Definition     | `Raising.Definition`                         | 06   |
-| Declare        | `Raising.Declare`                            | 06   |
-| Implementation | `Raising.Implementation`                     | 07   |
-| Define         | `Raising.Define`                             | 07   |
+| word           | Lean                                          | file |
+| -------------- | --------------------------------------------- | ---- |
+| Object         | `Raising.Object`                              | 00   |
+| `-->`          | `Raising.Arrow`, written `⟶` in Lean          | 01   |
+| `[]`           | `Raising.Collection`                          | 02   |
+| Token          | `Raising.Token`                               | 02   |
+| Instance       | `Raising.Instance`                            | 00   |
+| Meta-Object    | `Raising.MetaObject`                          | 03   |
+| Theta          | `Raising.Theta`                               | 04   |
+| Declaration    | `Raising.Declaration`                         | 05   |
+| Definition     | `Raising.Definition`                          | 06   |
+| Declare        | `Raising.Declare`                             | 06   |
+| Implementation | `Raising.Implementation`                      | 07   |
+| Define         | `Raising.Define`                              | 07   |
 | Meta-Language  | `Raising.MetaLanguage`, `declareMetaLanguage` | 09   |
-| Language       | `Raising.Language`                           | 09   |
+| Language       | `Raising.Language`                            | 09   |
 
 Beside them, the words the fourteen need and the root defines with them: carrier, candidate, property, extension, the interpreter (00); identity, composition (01); text (02); level (03); outer frame, legal, run (04); parameter, stated parameters, the floor, resolution (05); the burden, inheritance (08); well-formed, meaning, alphabet, the declaration of languages (09). The floor of the whole root, a meeting and a failing candidate per notion, is 10.
 
@@ -33,13 +33,13 @@ Declare goes from a collection of stated parameters to one definition. Define go
 
 The root is written in Lean 4 and imports nothing. Each level imports from the levels before it.
 
-| level | repository                                                   | written in                                  | holds                                        |
-| ----- | ------------------------------------------------------------ | ------------------------------------------- | -------------------------------------------- |
-| root  | `raising`                                                    | Lean 4                                      | the fourteen and the burden; these renderings |
+| level | repository                                                   | written in                                  | holds                                             |
+| ----- | ------------------------------------------------------------ | ------------------------------------------- | ------------------------------------------------- |
+| root  | `raising`                                                    | Lean 4                                      | the fourteen and the burden; these renderings     |
 | 1     | `interface-language`                                         | Lean 4, the interface-language              | the meta-language the declarations are written in |
-| 2     | `room`, `individual`, `memory-artifact`                      | the interface-language                      | the three declarations                       |
-| 3     | `mundus-language`                                            | the interface-language, the mundus-language | the language of the definitions of mundus    |
-| 4     | `mundus-room`, `mundus-individual`, `mundus-memory-artifact` | the mundus-language                         | the definitions of mundus                    |
+| 2     | `room`, `individual`, `memory-artifact`                      | the interface-language                      | the three declarations                            |
+| 3     | `mundus-language`                                            | the interface-language, the mundus-language | the language of the definitions of mundus         |
+| 4     | `mundus-room`, `mundus-individual`, `mundus-memory-artifact` | the mundus-language                         | the definitions of mundus                         |
 
 A framework is the root at full resolution: one definition of each declaration, every parameter stated, with the constraints shown; it inherits the burden by instantiation and proves nothing of its own. Mundus is the first. The levels below the root are not public on 2026-10-06 (recorded) and are linked from the root README when they are.
 

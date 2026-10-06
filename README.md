@@ -20,27 +20,28 @@ A language model becomes an assistant today by having its weights changed until 
 
 - **The white paper is published**: [`docs/paper/WhitePaper.md`](docs/paper/WhitePaper.md), _Intelligence and Its Existence: The Need for Persistence, Remembering, Control, and Purpose_, in its final text of 2026-10-05, closed by the authors. It is a position paper and the record of one running instance. It reports no results, and says so.
 - **The yellow paper**, its formal companion, is not yet present. It is to carry the formal treatment: the paper's terms as definitions, and its statements put to a machine check.
-- **The definitions** in [`definitions/`](definitions/README.md) are not done yet, and they are coming soon. A first draft was withdrawn when the white paper was published. It is still in the history, and that page says why.
+- **The root is published**: fourteen things defined in Lean 4 under [`Raising/`](Raising/), with one burden proved over them and checked by the kernel (`scripts/check.sh`: it builds, refuses a `sorry` or an axiom in the source, and refuses a theorem that depends on anything beyond Lean's three axioms), and their English renderings in [`definitions/`](definitions/README.md). A first draft of twenty English definitions was withdrawn on 2026-10-04; it is still in the history, and that page says why. The root was written by one author and has not yet had a reader who did not write it.
 - **The demonstration** in [`demonstration/`](demonstration/README.md) is not done yet, and it is coming soon.
 - **The letters** that go with the paper are not yet present.
 
-Nothing in this repository is a proof yet.
+The only proof in this repository is the root's burden. Nothing about any individual, room or memory is proved here; those are the components', above the root.
 
 ## What the framework will claim
 
-When the definitions and the demonstration are done, every claim of the framework will be made in exactly one of three registers: proved by the Lean kernel, measured, or recorded. Three things will not be claimed in any of them: how any individual will act, what a model feels, and that every model can be raised. The white paper was written before the definitions and depends on none of them. It makes its own claims in its own terms, each with what would refute it.
+When the components and the demonstration are done, every claim of the framework will be made in exactly one of three registers: proved by the Lean kernel, measured, or recorded. Three things will not be claimed in any of them: how any individual will act, what a model feels, and that every model can be raised. The white paper was written before the definitions and depends on none of them. It makes its own claims in its own terms, each with what would refute it.
 
 ## What is here
 
 - `docs/`: the writing around the framework. Start with [`docs/README.md`](docs/README.md).
-- `definitions/`: the place of the framework's definitions, with a page that says where they stand.
+- `Raising/`: the root in Lean 4, with `scripts/check.sh` as its check.
+- `definitions/`: the English renderings of the root, read in order, with the stack and what is not defined here.
 - `demonstration/`: the place of the machine-checked proof. Empty.
 
-Beside them: `CHANGELOG.md` for every version and the legacy text of every changed definition, and `LICENSE.md`, MIT. The paper carries its own licence, CC BY 4.0. The manifesto has its own repository: [manifesto](https://github.com/CMZN-Consulting/manifesto).
+Beside them: `LICENSE.md`, MIT. The version is the `version` field of `package.json`, and the history keeps every legacy text. The paper carries its own licence, CC BY 4.0. The manifesto has its own repository: [manifesto](https://github.com/CMZN-Consulting/manifesto).
 
 ## The components
 
-This repository composes. It defines no component. Each component will live in a repository of its own, with its own witnesses: the meta-language the declarations are written in; the declarations of a room, an individual and a memory; and a first instantiation of them, which is called mundus. A first version of those repositories was public until 2026-10-04. They are private while they are rewritten, and they will be linked from here when they are ready.
+This repository is the root of a stack and defines the root alone. Above it, each in a repository of its own: the interface-language, in which the declarations are written; the declarations of a room, an individual and a memory; the mundus-language; and the definitions of mundus, the first framework. The stack is laid out in [`definitions/README.md`](definitions/README.md). A first version of those repositories was public until 2026-10-04. They are private while they are rewritten, and they will be linked from here when they are ready.
 
 ## Join the discussion
 
@@ -52,4 +53,4 @@ The forum is at <https://github.com/orgs/CMZN-Consulting/discussions>, and it is
 
 Each post carries a mark that its author sets before anyone reads it: plain, contested, uncertain or unsettling. Nothing is removed because of its mark.
 
-Status: 0.1.0. The white paper is published and closed. The definitions, the demonstration and the yellow paper are not done yet, and nothing here is a proof yet.
+Status: 0.2.0. The white paper is published and closed. The root is defined in Lean 4 and its burden is proved. The demonstration and the yellow paper are not done yet.
