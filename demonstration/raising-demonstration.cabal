@@ -19,34 +19,48 @@ library
   import: shared
   exposed-modules:
     Raising.Root
+    Demonstration.Adapter
+    Demonstration.Harness
     Demonstration.Mundus
   build-depends:
     base >=4.18 && <5,
     containers,
     deepseq,
+    process,
     mundus-individual,
     mundus-language,
     mundus-memory-artifact,
     mundus-room,
   hs-source-dirs: src
 
-executable demonstration
+executable harness
   import: shared
   main-is: Main.hs
   build-depends:
     base,
-    mundus-language,
     raising-demonstration,
   hs-source-dirs: app
+
+executable replay-adapter
+  import: shared
+  main-is: ReplayAdapter.hs
+  build-depends:
+    base,
+    mundus-individual,
+    raising-demonstration,
+  hs-source-dirs: adapter
 
 test-suite demonstration-tests
   import: shared
   type: exitcode-stdio-1.0
   main-is: Spec.hs
+  build-tool-depends: raising-demonstration:replay-adapter
   build-depends:
     QuickCheck >=2.14,
     base,
+    mundus-individual,
     mundus-language,
+    mundus-memory-artifact,
     mundus-room,
     raising-demonstration,
   hs-source-dirs: test

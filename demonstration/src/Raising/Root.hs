@@ -72,7 +72,11 @@ newtype OuterFrame a = OuterFrame {step :: a -> a}
 -- | Mirrors @Raising.OuterFrame.run@: the step applied for that many units of Theta.
 -- @run f x (a + b) == run f (run f x a) b@ is @Raising.OuterFrame.run_add@.
 run :: OuterFrame a -> a -> Theta -> a
-run (OuterFrame s) x theta = iterate s x !! max 0 theta
+run (OuterFrame s) = go
+  where
+    go x theta
+      | theta <= 0 = x
+      | otherwise = let y = s x in y `seq` go y (theta - 1)
 
 -- | Mirrors @Raising.OuterFrame.arrow@: the run to a value of Theta as an arrow.
 runArrow :: OuterFrame a -> Theta -> Arrow a a
