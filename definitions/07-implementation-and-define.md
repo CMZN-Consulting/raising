@@ -4,7 +4,7 @@ Depends on: definition, instance. Lean: `Raising.Implementation`, `Raising.Defin
 
 An implementation of a definition is an instance of the definition's object: a realized candidate adhering to the specification, with every constraint shown.
 
-Define is the arrow from one definition to one implementation. A Define arrow is a realization of the definition, and its showing is that the realization adheres to the definition: checked by the gate where the implementation is Lean, and by replay where it is a run. Two implementations of one definition are two Define arrows, each named by what realizes it.
+Define is the arrow from one definition to one implementation, in the plain sense of 06 and not the arrow of 01. A Define arrow is a realization of the definition, and its showing is that the realization adheres to the definition: checked by the gate where the implementation is Lean, and by replay where it is a run. Two implementations of one definition are two Define arrows, each named by what realizes it.
 
 Every definition has a Define arrow: the meeting candidate of its declaration's floor is one (proved: `Raising.Define.exists`).
 
