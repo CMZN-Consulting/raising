@@ -1,0 +1,72 @@
+name: demonstration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HAS_STACK_TOKEN: ${{ secrets.STACK_TOKEN != '' }}
+    steps:
+      - name: The four implementations are private; reading them needs the secret STACK_TOKEN
+        if: env.HAS_STACK_TOKEN != 'true'
+        run: echo "::warning::The secret STACK_TOKEN is not set on this repository, so the harness is not built."
+      - uses: actions/checkout@v7
+        if: env.HAS_STACK_TOKEN == 'true'
+        with:
+          path: self
+      - uses: actions/checkout@v7
+        if: env.HAS_STACK_TOKEN == 'true'
+        with:
+          repository: CMZN-Consulting/mundus-language
+          path: mundus-language
+          token: ${{ secrets.STACK_TOKEN }}
+      - uses: actions/checkout@v7
+        if: env.HAS_STACK_TOKEN == 'true'
+        with:
+          repository: CMZN-Consulting/mundus-memory-artifact
+          path: mundus-memory-artifact
+          token: ${{ secrets.STACK_TOKEN }}
+      - uses: actions/checkout@v7
+        if: env.HAS_STACK_TOKEN == 'true'
+        with:
+          repository: CMZN-Consulting/mundus-room
+          path: mundus-room
+          token: ${{ secrets.STACK_TOKEN }}
+      - uses: actions/checkout@v7
+        if: env.HAS_STACK_TOKEN == 'true'
+        with:
+          repository: CMZN-Consulting/mundus-individual
+          path: mundus-individual
+          token: ${{ secrets.STACK_TOKEN }}
+      - name: Install GHC 9.14.1 and cabal with ghcup
+        if: env.HAS_STACK_TOKEN == 'true'
+        run: |
+          set -euo pipefail
+          export GHCUP_INSTALL_BASE_PREFIX="$HOME/haskell"
+          mkdir -p "$GHCUP_INSTALL_BASE_PREFIX"
+          curl -sSf https://get-ghcup.haskell.org -o get-ghcup.sh
+          BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh get-ghcup.sh
+          export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$PATH"
+          ghcup install ghc 9.14.1 --set
+          ghcup install cabal latest --set
+          echo "$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin" >> "$GITHUB_PATH"
+      - name: Build, test, and run the harness
+        if: env.HAS_STACK_TOKEN == 'true'
+        working-directory: self/demonstration
+        run: |
+          set -euo pipefail
+          cabal update
+          cabal build all
+          cabal test all
+          cabal run -v0 harness
+          cabal run -v0 harness -- --units 9 --adapter "$(cabal list-bin replay-adapter)"

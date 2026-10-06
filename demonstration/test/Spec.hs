@@ -14,6 +14,7 @@ import MundusIndividual.Definition qualified as Ind
 import MundusIndividual.Platform qualified as Ind
 import MundusIndividual.Record qualified as Rec
 import MundusLanguage.Forms qualified as L
+import MundusMemoryArtifact.Types qualified as Mem
 import MundusMemoryArtifact.WellFormed qualified as Mem
 import MundusRoom.Definition qualified as Room
 import MundusRoom.Manual qualified as Manual
@@ -69,6 +70,9 @@ checks =
   , ("tired_every_unit_a_bed", once (let (h, w) = tiredStructure in Trace.days (roomManual h) (roomTrace (R.run (frameOf h) w 5)) === 5))
   , ("tired_wellFormed", once (let (h, w) = tiredStructure in conjoin [eventWellFormed e && eventRecordOk e | e <- observe h w 5]))
   , ("record_rebuilds", once (replayRecord housing world0 Room.run === after seven))
+  , ("day_zero_declares_the_ten", once (length (filter ((== Mem.KTool) . Mem.infoKind) (Mem.toolkit (memory world0))) === 10))
+  , ("memory_holds_the_keeps", once (conjoin [counterexample (show w) (keptWords (memory (after seven)) w) | w <- [20, 21, 22]]))
+  , ("memory_refuses_nothing", once (filter ((== Mem.KRet Mem.RRefusal) . Mem.infoKind) (Mem.memoryAll (memory (after seven))) === []))
   , ("harness_equals_pure", once (ioProperty (harnessWorld (pureAdapter thePlatform (recordedRun 128)))))
   , ("subprocess_equals_pure", once (ioProperty (withSubprocess thePlatform "replay-adapter" [] harnessWorld)))
   , ("subprocess_replayed", once (ioProperty (withSubprocess thePlatform "replay-adapter" [] (\a -> (=== Right [3, 0, 20]) <$> replayCheck a (callAt housing world0)))))
@@ -83,6 +87,20 @@ checks =
   where
     recordOk w = Rec.attributed (record w) && Rec.resolves (record w)
     wellFormedAt n = Mem.wellFormed (memoryCtx housing) (memory (after n))
+    -- A keep with no target points to the call it was made by, whose data carries the words
+    -- (the keeping effect of the memory's Tools.lean): a word is kept when a keep's pointer
+    -- names a call holding it.
+    keptWords m w =
+      let infos = Mem.memoryAll m
+       in or
+            [ w `elem` Mem.infoData c
+            | k <- infos
+            , Mem.infoIsKeep k
+            , p : _ <- [Mem.infoPointers k]
+            , c <- infos
+            , Mem.infoHash c == p
+            , Mem.infoKind c == Mem.KCall
+            ]
 
 -- | The platform the structure was initialized with.
 thePlatform :: Ind.Platform

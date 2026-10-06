@@ -9,6 +9,9 @@ module Demonstration.Mundus
     Housing (..)
   , World (..)
   , contextLimit
+  , desk
+  , policy0
+  , dayZero
   , initialize
     -- * The framing the individual reads
   , contextOf
@@ -42,7 +45,8 @@ import MundusIndividual.Hydration qualified as Ind
 import MundusIndividual.Platform qualified as Ind
 import MundusIndividual.Record qualified as Rec
 import MundusLanguage.Forms qualified as L
-import MundusLanguage.Types (Line (..), Text, Theta)
+import MundusLanguage.Types (Line (..), Name, Text, Theta, allTools, toolCode)
+import MundusMemoryArtifact.Append qualified as Mem
 import MundusMemoryArtifact.Day qualified as Mem
 import MundusMemoryArtifact.Definition qualified as Mem
 import MundusMemoryArtifact.Knobs qualified as Mem
@@ -80,11 +84,35 @@ data World = World
 contextLimit :: Int
 contextLimit = 128
 
+-- | The desk, the writer of the memory's day 0, as the memory library's witness names it.
+desk :: Name
+desk = 3
+
+-- | The policy of epoch 0, as the memory library's witness has it.
+policy0 :: Mem.Policy
+policy0 = Mem.Policy 1 2 [3]
+
+-- | The desk's day 0, as the memory library's witness has it: the desk declares the ten
+-- tools in the toolkit, shelves the list of recipes (recipe 5, bound 4), and writes the policy
+-- of epoch 0 with the reason 70. Each is offered as an info is offered, so a draft the memory
+-- refused would leave the refusal instead. Without day 0 the toolkit declares no tool, and the
+-- memory refuses every call.
+dayZero :: Mem.Ctx -> Mem.Memory -> Mem.Memory
+dayZero c m0 = foldl offer m0 drafts
+  where
+    drafts =
+      [(Mem.Toolkit, Mem.Draft desk Mem.KTool [toolCode t] []) | t <- allTools]
+        ++ [ (Mem.StoreShared, Mem.Draft desk (Mem.KShelf Mem.SRecipes) [5, 4] [])
+           , (Mem.StoreShared, Mem.Draft desk Mem.KPolicy (Mem.policyKey policy0 ++ [70]) [])
+           ]
+    offer m (l, d) = Mem.step c m l (Mem.mkInfo c m l d)
+
 -- | Reads what the definitions state and builds the structure: the vocabulary and the window
 -- from the room's texts, the knobs from the memory's, the platform and the environment from
 -- the individual's, with the hydration given. The world starts on the empty header and the
--- empty trace, on the memory's empty memory after its first night, and on the record of the
--- individual's definition. A text that its checker refuses stops the initialization, named.
+-- empty trace, on the memory's empty memory after the desk's day 0 and the first start of
+-- day, and on the record of the individual's definition. A text that its checker refuses
+-- stops the initialization, named.
 initialize :: Ind.Hydration -> Either String (Housing, World)
 initialize h = do
   v <- note "the vocabulary text" (Room.readNat Room.vocabText)
@@ -96,7 +124,7 @@ initialize h = do
   unless (Rec.attributed Ind.record && Rec.resolves Ind.record) (Left "the definition's record")
   let c = Mem.ctx {Mem.ctxP = k}
       q = Ind.IndividualParams p e h [] 0
-  pure (Housing v w c Room.manual q, World [] [] (Mem.startDay c Mem.memoryEmpty) Ind.record)
+  pure (Housing v w c Room.manual q, World [] [] (Mem.startDay c (dayZero c Mem.memoryEmpty)) Ind.record)
   where
     note what = maybe (Left ("refused: " ++ what)) Right
 
