@@ -1,0 +1,52 @@
+cabal-version: 3.0
+name: raising-demonstration
+version: 0.3.0
+synopsis: The root's maps in Haskell, and the composition of the implementations of mundus
+license: MIT
+build-type: Simple
+
+common shared
+  default-language: GHC2021
+  default-extensions:
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    LambdaCase
+    StrictData
+  ghc-options: -Wall -O2
+
+library
+  import: shared
+  exposed-modules:
+    Raising.Root
+    Demonstration.Mundus
+  build-depends:
+    base >=4.18 && <5,
+    containers,
+    deepseq,
+    mundus-individual,
+    mundus-language,
+    mundus-memory-artifact,
+    mundus-room,
+  hs-source-dirs: src
+
+executable demonstration
+  import: shared
+  main-is: Main.hs
+  build-depends:
+    base,
+    mundus-language,
+    raising-demonstration,
+  hs-source-dirs: app
+
+test-suite demonstration-tests
+  import: shared
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  build-depends:
+    QuickCheck >=2.14,
+    base,
+    mundus-language,
+    mundus-room,
+    raising-demonstration,
+  hs-source-dirs: test

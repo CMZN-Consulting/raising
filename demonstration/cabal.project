@@ -1,0 +1,9 @@
+-- The demonstration composes the four implementations of mundus, each checked out beside
+-- this repository, as Lake's path dependencies do for the Lean above them.
+packages:
+  .
+  ../../mundus-language/implementation
+  ../../mundus-memory-artifact/implementation
+  ../../mundus-room/implementation
+  ../../mundus-individual/implementation
+index-state: hackage.haskell.org 2026-09-04T16:40:41Z
