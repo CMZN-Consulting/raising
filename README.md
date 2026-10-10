@@ -22,7 +22,7 @@ A language model becomes an assistant today by having its weights changed until 
 - **The yellow paper**, its formal companion, is not yet present. It is to carry the formal treatment: the paper's terms as definitions, and its statements put to a machine check.
 - **The root is published**: seventeen things defined in Lean 4 under [`Raising/`](Raising/), with one burden proved over them and checked by the kernel (`scripts/check.sh`: it builds, refuses a `sorry` or an axiom in the source, and refuses a theorem that depends on anything beyond Lean's three axioms), and their English renderings in [`definitions/`](definitions/README.md). A first draft of twenty English definitions was withdrawn on 2026-10-04; it is still in the history, and that page says why. The root was written by one author and has not yet had a reader who did not write it.
 - **The harness** is in [`demonstration/`](demonstration/README.md): the implementations of mundus composed into one structure, initialized from the definitions' own data and compiled, with an adapter per platform as the one part particular to a model. It runs the room's recorded run and measures its adherence to the Lean. No adapter for a live model is wired yet, so the demonstration itself is still to come.
-- **The letters** that go with the paper are not yet present.
+- **The letters** that go with the paper, sent on 5 October 2026, are in [`docs/letters/`](docs/letters/README.md) as sent.
 
 The only proof in this repository is the root's burden. Nothing about any individual, room or memory is proved here; those are the components', above the root.
 

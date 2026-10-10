@@ -12,7 +12,7 @@ The paper was written before the framework's definitions and depends on none of 
 
 ## The letters
 
-Not yet present. Three letters go with the paper. Each is sent by the first author under his name, and each will be placed in `letters/` once it has been sent.
+Three letters go with the paper, sent on 5 October 2026 by the first author under his name, the day after the paper went public. They are in [`letters/`](letters/README.md) as sent. Replies, if any, are not published.
 
 ## Terms the paper and the root share
 
